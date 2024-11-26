@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish with creamy sauce and pancetta.",
+    "ingredients": "Spaghetti, eggs, pancetta, Parmesan cheese, black pepper",
+    "imgUrl": "https://example.com/images/spaghetti-carbonara.jpg",
+    "categoryId": 2,
+    "userId": 1
+  },
+  {
+    "name": "Caesar Salad",
+    "description": "A fresh salad with crunchy croutons and creamy Caesar dressing.",
+    "ingredients": "Romaine lettuce, croutons, Caesar dressing, Parmesan cheese",
+    "imgUrl": "https://example.com/images/caesar-salad.jpg",
+    "categoryId": 1,
+    "userId": 2
+  },
+  {
+    "name": "Chocolate Lava Cake",
+    "description": "A warm chocolate cake with a gooey molten center.",
+    "ingredients": "Chocolate, butter, eggs, sugar, flour",
+    "imgUrl": "https://example.com/images/chocolate-lava-cake.jpg",
+    "categoryId": 3,
+    "userId": 3
+  },
+  {
+    "name": "Iced Coffee",
+    "description": "A refreshing cold coffee drink with milk and sugar.",
+    "ingredients": "Coffee, milk, sugar, ice cubes",
+    "imgUrl": "https://example.com/images/iced-coffee.jpg",
+    "categoryId": 4,
+    "userId": 1
+  },
+  {
+    "name": "Potato Chips",
+    "description": "Crispy and salty potato slices, perfect for snacking.",
+    "ingredients": "Potatoes, salt, oil",
+    "imgUrl": "https://example.com/images/potato-chips.jpg",
+    "categoryId": 5,
+    "userId": 2
+  },
+  {
+    "name": "Margherita Pizza",
+    "description": "A simple yet delicious pizza with fresh tomatoes and basil.",
+    "ingredients": "Pizza dough, tomatoes, mozzarella cheese, basil, olive oil",
+    "imgUrl": "https://example.com/images/margherita-pizza.jpg",
+    "categoryId": 2,
+    "userId": 3
+  },
+  {
+    "name": "Greek Salad",
+    "description": "A healthy salad with fresh vegetables, olives, and feta cheese.",
+    "ingredients": "Cucumber, tomatoes, olives, feta cheese, red onions, olive oil",
+    "imgUrl": "https://example.com/images/greek-salad.jpg",
+    "categoryId": 1,
+    "userId": 2
+  },
+  {
+    "name": "Tiramisu",
+    "description": "A creamy dessert with coffee-soaked ladyfingers and cocoa topping.",
+    "ingredients": "Ladyfingers, mascarpone cheese, coffee, cocoa powder, sugar",
+    "imgUrl": "https://example.com/images/tiramisu.jpg",
+    "categoryId": 3,
+    "userId": 1
+  },
+  {
+    "name": "Lemonade",
+    "description": "A tangy and sweet drink made with fresh lemons.",
+    "ingredients": "Lemons, sugar, water, ice cubes",
+    "imgUrl": "https://example.com/images/lemonade.jpg",
+    "categoryId": 4,
+    "userId": 3
+  },
+  {
+    "name": "Nachos",
+    "description": "Tortilla chips loaded with cheese and delicious toppings.",
+    "ingredients": "Tortilla chips, cheese, jalapenos, salsa, sour cream",
+    "imgUrl": "https://example.com/images/nachos.jpg",
+    "categoryId": 5,
+    "userId": 2
+  }
+]
