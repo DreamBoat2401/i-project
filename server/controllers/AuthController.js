@@ -16,7 +16,8 @@ class AuthController {
                 newUser
             })
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+            next(error)
         }
     }
 
@@ -52,7 +53,8 @@ class AuthController {
             })
 
         } catch (error) {
-            console.log(error);
+            // console.log(error);
+            next(error)
             
         }
     }

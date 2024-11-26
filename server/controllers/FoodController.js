@@ -18,8 +18,8 @@ class FoodController {
             })
             
         } catch (error) {
-            console.log(error);
-            
+            // console.log(error);
+            next(error)
         }
     }
 
@@ -37,8 +37,8 @@ class FoodController {
             })
             
         } catch (error) {
-            console.log(error);
-            
+            // console.log(error);
+            next(error)
         }
     }
 
@@ -77,8 +77,8 @@ class FoodController {
                 message: `Success delete foods with id ${foods.id}`
             })
         } catch (error) {
-            console.log(error);
-            
+            // console.log(error);
+            next(error)
         }
     }
 
