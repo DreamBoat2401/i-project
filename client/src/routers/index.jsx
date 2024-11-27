@@ -3,6 +3,9 @@ import LoginPage from "../views/LoginPage";
 import RegisterPage from "../views/RegisterPage";
 import BaseLayout from "../views/BaseLayout";
 import HomePage from "../views/HomaPage";
+import DetailPage from "../views/DetailPage";
+import UpdatePage from "../views/UpdatePage";
+import AddPage from "../views/AddPage";
 
 const base_url = "http://localhost:3000"
 
@@ -21,7 +24,19 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <HomePage base_url={base_url} />,
-          },
+        },
+        {
+            path: "/foods/:id",
+            element: <DetailPage base_url={base_url} />,
+        },
+        {
+            path: "/foods/:id/edit",
+            element: <UpdatePage base_url={base_url} />,
+        },
+        {
+            path: "/foods/add",
+            element: <AddPage base_url={base_url} />,
+        },
       ]
     },
   ]);
