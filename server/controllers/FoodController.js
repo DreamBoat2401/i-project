@@ -23,6 +23,24 @@ class FoodController {
         }
     }
 
+    static async readDetail(req, res, next) {
+        try {
+            const { id } = req.params
+
+            const foods = await Food.findByPk(id)
+
+            if (!foods) throw { name: "NotFound", id}
+
+            res.status(200).json({
+                status: 200,
+                message: `Success read foods with id ${foods.id}`,
+                foods
+            })
+        } catch (error) {
+            next(error)
+        }
+    }
+
     static async create(req, res, next) {
         try {
             const { name, description, ingredients, imgUrl, categoryId, userId } = req.body
