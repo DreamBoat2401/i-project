@@ -1,30 +1,37 @@
 import axios from "axios";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAsync } from "../features/food/foodSlice";
 
 
 export default function HomePage({ base_url }) {
-    const [foods, setFoods] = useState([])
-    console.log(foods);
+    // const [foods, setFoods] = useState([])
+    // console.log(foods);
+
+    const { foods, loading, error } = useSelector((state) => state.foods);
+    const dispatch = useDispatch();
+
+    console.log(foods.foods);
     
 
-    async function fetchFoods() {
-        try {
-            const { data } = await axios.get(`${base_url}/foods`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.access_token}`
-                }
-            })
-            console.log(data.foods);
-            setFoods(data.foods)
+    // async function fetchFoods() {
+    //     try {
+    //         const { data } = await axios.get(`${base_url}/foods`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${localStorage.access_token}`
+    //             }
+    //         })
+    //         console.log(data.foods);
+    //         setFoods(data.foods)
             
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     useEffect(() => {
-        fetchFoods()
+        dispatch(fetchAsync())
     }, [])
 
     return(
@@ -60,11 +67,11 @@ export default function HomePage({ base_url }) {
     </h3>
     <div className="grid gap-8 md:grid-cols-3">
       {/* Card */}
-      {foods.map((food) => (
+      {foods?.map((food) => (
         <Card 
-            key={food.id}
+            key={food?.id}
             food={food}
-            fetchFoods={fetchFoods}
+            fetchAsync={fetchAsync}
         />
       ))}
     </div>
