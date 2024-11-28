@@ -63,7 +63,8 @@ class FoodController {
     }
 
     static async update(req, res, next) {
-        const { id } = req.params
+        try {
+            const { id } = req.params
 
         const foods = await Food.findByPk(id)
 
@@ -78,6 +79,9 @@ class FoodController {
             message: `Success update foods with id ${foods.id}`,
             foods
         })
+        } catch (error) {
+            next(error)
+        }
     }
 
     static async delete(req, res, next) {

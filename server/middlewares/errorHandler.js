@@ -19,6 +19,16 @@ const errorHandler = (err, req, res, next) => {
         message = 'Invalid input'
     }
 
+    if (err.name == 'BadRequestEmail') {
+        message = 'Please input email'
+        status = 401
+    }
+
+    if (err.name == 'BadRequestPassword') {
+        message = 'Please input password'
+        status = 401
+    }
+
     if (err.name == 'InvalidLogin') {
         message = 'Please input email or password'
         status = 401
