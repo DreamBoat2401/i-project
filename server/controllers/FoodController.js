@@ -4,6 +4,8 @@ class FoodController {
 
     static async read(req, res, next) {
         try {
+            console.log("berhasil masuk ke read foods");
+            
             const foods = await Food.findAll({
                 attributes: {
                     exclude: ['createdAt', 'updatedAt']

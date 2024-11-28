@@ -26,9 +26,9 @@ export default function Navbar() {
       <nav>
         <ul className="flex space-x-6 text-gray-600">
           <li>
-            <a href="#" className="hover:text-red-600">
+            <Link to="/" className="hover:text-red-600">
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#" className="hover:text-red-600">

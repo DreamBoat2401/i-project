@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GoogleLogin } from '@react-oauth/google';
 
 
 export default function LoginPage({ base_url }) {
@@ -8,6 +9,26 @@ export default function LoginPage({ base_url }) {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
+    // function handleCredentialResponse(response) {
+    //   console.log("Encoded JWT ID token: " + response.credential);
+    // }
+
+    async function googleLogin(codeResponse) {
+      try {
+        // console.log(codeResponse);
+        const { data } = await axios.post(`${base_url}/google-login`, null, {
+          headers: {
+            token: codeResponse.credential
+          }
+        })
+        console.log(data, "<<<ini data");
+        
+        localStorage.setItem("access_token", data.access_token)
+        navigate('/')
+      } catch (error) {
+        
+      }
+    }
     
     async function handleOnSubmit(e) {
         try {
@@ -23,10 +44,19 @@ export default function LoginPage({ base_url }) {
             navigate('/')
         } catch (error) {
             console.log(error);
-            
         }
     }
     
+    useEffect(() => {
+      // google.accounts.id.initialize({
+      //   client_id: "543833896847-4dmk1nsda2sr35pk6qa95hn947a62pcv.apps.googleusercontent.com",
+      //   callback: handleCredentialResponse
+      // });
+      // google.accounts.id.renderButton(
+      //   document.getElementById("buttonDiv"),
+      //   { theme: "outline", size: "large" }  // customization attributes
+      // );
+    }, [])
 
     return(
         <>
@@ -76,6 +106,10 @@ export default function LoginPage({ base_url }) {
         >
           Login
         </button>
+      </div>
+      <br />
+      <div id="buttonDiv" className="flex items-center justify-center">
+        <GoogleLogin onSuccess={googleLogin}/>
       </div>
     </form>
     <div className="mt-5 flex items-center justify-center">

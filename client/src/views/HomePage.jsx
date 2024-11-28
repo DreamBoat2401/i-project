@@ -15,7 +15,7 @@ export default function HomePage({ base_url }) {
                     Authorization: `Bearer ${localStorage.access_token}`
                 }
             })
-            // console.log(data.foods);
+            console.log(data.foods);
             setFoods(data.foods)
             
         } catch (error) {

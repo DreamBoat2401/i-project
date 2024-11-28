@@ -2,6 +2,7 @@
 const { comparePassword } = require('../helpers/bcrypt');
 const { signToken } = require('../helpers/jwt');
 const { User } = require('../models')
+const {OAuth2Client} = require('google-auth-library');
 
 class AuthController {
 
@@ -56,6 +57,47 @@ class AuthController {
             // console.log(error);
             next(error)
             
+        }
+    }
+
+    static async googleLogin(req, res, next) {
+        // console.log("headers", req.headers);
+        // console.log("body", req.body);
+        
+        try {
+            const { token } = req.headers
+            const client = new OAuth2Client();
+            
+            const ticket = await client.verifyIdToken({
+                idToken: token,
+                audience: "543833896847-4dmk1nsda2sr35pk6qa95hn947a62pcv.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
+                
+            });
+            const payload = ticket.getPayload();
+            // console.log(payload, "<<< ini payload");
+
+            const [user, created] = await User.findOrCreate({
+                where: {
+                    email: payload.email
+                },
+                defaults: {
+                    email: payload.email,
+                    password: "password_google"
+                },
+                hooks: false
+            })
+
+            const access_token = signToken({
+                id: user.id,
+                email: user.email,
+            })
+
+            // console.log(access_token);
+            
+            res.status(200).json({ access_token })
+        } catch (error) {
+            console.log(error);
+            next(error)
         }
     }
 

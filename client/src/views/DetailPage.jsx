@@ -72,7 +72,7 @@ export default function DetailPage({ base_url }) {
           <div className="flex justify-between mt-6">
             <button
               onClick={handleUpdate}
-              className="bg-yellow-400 text-white px-6 py-2 rounded-md hover:bg-yellow-500"
+              className="bg-green-400 text-white px-6 py-2 rounded-md hover:bg-green-500"
             >
               Update
             </button>

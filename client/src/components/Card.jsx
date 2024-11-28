@@ -22,7 +22,7 @@ export default function Card({ food }) {
             {food.name}
           </h4>
           <p className="text-gray-600 mt-2">{food.description}</p>
-          <p className="text-red-600 font-bold mt-4">$12.99</p>
+          <p className="text-red-600 font-bold mt-4">See more...</p>
         </div>
       </div>
         </>
