@@ -1,8 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 
 export default function Navbar() {
     const navigate = useNavigate()
+    const { id } = useParams()
+    console.log(id, '<< id');
+    
 
     async function handleLogout(e) {
         try {
@@ -31,9 +34,9 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-red-600">
-              Menu
-            </a>
+            <Link to={`/user/${id}`} className="hover:text-red-600">
+              User
+            </Link>
           </li>
           <li>
             <Link to="/foods/add" className="hover:text-red-600">

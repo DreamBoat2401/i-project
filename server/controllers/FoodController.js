@@ -1,4 +1,5 @@
 const { Food } = require('../models')
+const { GoogleGenerativeAI } = require('@google/generative-ai')
 
 class FoodController {
 
@@ -103,6 +104,27 @@ class FoodController {
         } catch (error) {
             // console.log(error);
             next(error)
+        }
+    }
+
+    static async recommendation(req, res, next) {
+        try {
+            const genAi = new GoogleGenerativeAI('AIzaSyAXxkylolfZa-n1YkDyutVrlXQbCdElxzg')
+            const model = genAi.getGenerativeModel({ model: 'gemini-1.5-flash' })
+
+            const prompt = 'Kasih saya 10 rekomendasi makanan apa yang paling ngehits ini di kategori Appetizers, Main Course, Desserts, Beverages, Snacks, setiap kali anda mengirim, jangan kirimkan yang sama dan tolong kelompokan berdasarkan kategori di atas dan berikan dalam bentuk json tanpa tag json dan tanpa enter'
+            const result = await model.generateContent(prompt)
+            const response = await result.response
+            const text = JSON.parse(response.text())
+            console.log(text);
+               
+
+            res.status(200).json({
+                message: 'Success generate content',
+                text
+            })
+        } catch (error) {
+            console.log(error)
         }
     }
 

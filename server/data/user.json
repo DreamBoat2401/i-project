@@ -1,18 +1,20 @@
 [
-    {
-      "username": "john_doe",
-      "email": "john.doe@mail.com",
-      "password": "12345"
-    },
-    {
-      "username": "jane_smith",
-      "email": "jane.smith@mail.com",
-      "password": "12345"
-    },
-    {
-      "username": "michael_brown",
-      "email": "michael.brown@mail.com",
-      "password": "12345"
-    }
-  ]
-  
+  {
+    "username": "john_doe",
+    "email": "john.doe@mail.com",
+    "password": "12345",
+    "imgUrl": "https://example.com/uploads/john_doe_cartoon.png"
+  },
+  {
+    "username": "jane_smith",
+    "email": "jane.smith@mail.com",
+    "password": "12345",
+    "imgUrl": "https://example.com/uploads/jane_smith_cartoon.png"
+  },
+  {
+    "username": "michael_brown",
+    "email": "michael.brown@mail.com",
+    "password": "12345",
+    "imgUrl": "https://example.com/uploads/michael_brown_cartoon.png"
+  }
+]

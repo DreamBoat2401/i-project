@@ -6,7 +6,7 @@ export default function RegisterPage({base_url}) {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
     async function handleOnSubmit(e) {
         try {

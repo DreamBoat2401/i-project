@@ -6,6 +6,7 @@ import HomePage from "../views/HomePage";
 import DetailPage from "../views/DetailPage";
 import UpdatePage from "../views/UpdatePage";
 import AddPage from "../views/AddPage";
+import UserPage from "../views/UserPage";
 
 const base_url = "http://localhost:3000"
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         {
             path: "/foods/add",
             element: <AddPage base_url={base_url} />,
+        },
+        {
+            path: "/user/:id",
+            element: <UserPage base_url={base_url} />,
         },
       ]
     },

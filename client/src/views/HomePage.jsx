@@ -3,11 +3,14 @@ import Card from "../components/Card";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAsync } from "../features/food/foodSlice";
+import RecommendationPage from "./RecommendationPage";
+import { Link } from "react-router-dom";
 
 
 export default function HomePage({ base_url }) {
     // const [foods, setFoods] = useState([])
     // console.log(foods);
+    const [recommendation, setRecommendation] = useState([])
 
     const { foods, loading, error } = useSelector((state) => state.foods);
     const dispatch = useDispatch();
@@ -30,8 +33,24 @@ export default function HomePage({ base_url }) {
     //     }
     // }
 
+    async function fetchRecommendation() {
+      try {
+        const { data } = await axios.get(`${base_url}/foods/recommendation`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.access_token}`
+          }
+        })
+
+        setRecommendation(data.text)
+      } catch (error) {
+        console.error(error)
+      }
+      
+    }
+
     useEffect(() => {
         dispatch(fetchAsync())
+        fetchRecommendation()
     }, [])
 
     return(
@@ -60,6 +79,10 @@ export default function HomePage({ base_url }) {
       </div>
     </div>
   </section>
+  <br />
+  <div className="w-full">
+    <RecommendationPage recommendation={recommendation}/>
+    </div>
   {/* Featured Menu Section */}
   <section id="menu" className="container mx-auto py-12 px-6">
     <h3 className="text-3xl font-bold text-center mb-8 text-gray-700">
@@ -75,6 +98,7 @@ export default function HomePage({ base_url }) {
         />
       ))}
     </div>
+    
   </section>
   {/* Footer */}
   <footer className="bg-gray-800 text-gray-200 py-6">

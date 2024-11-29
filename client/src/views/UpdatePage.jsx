@@ -9,7 +9,6 @@ export default function UpdatePage({ base_url }) {
     name: "",
     description: "",
     ingredients: "",
-    price: "",
     imgUrl: "",
   });
   const [loading, setLoading] = useState(true);

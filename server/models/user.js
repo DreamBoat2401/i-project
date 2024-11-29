@@ -48,6 +48,9 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Password cannot empty"
         }
       }
+    },
+    imgUrl: {
+      type: DataTypes.STRING
     }
   }, {
     sequelize,
